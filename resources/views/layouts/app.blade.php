@@ -6,28 +6,38 @@
     <title>Portofolio - Muhammad Zacky Zayyan</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+<body class="bg-black text-gray-100 font-sans flex flex-col min-h-screen antialiased">
 
     <!-- Navbar -->
-    <nav class="bg-gray-800 border-b border-gray-700">
-        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="{{ route('home') }}" class="font-bold text-xl text-indigo-400">Zacky.dev</a>
-            <div class="space-x-4">
-                <a href="{{ route('home') }}" class="hover:text-indigo-400 font-medium">Tentang</a>
-                <a href="{{ route('projects') }}" class="hover:text-indigo-400 font-medium">Proyek</a>
-            </div>
+    <header class="bg-black/90 backdrop-blur-md border-b border-emerald-950 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="{{ route('home') }}" class="font-extrabold text-xl tracking-tight text-emerald-500 hover:text-emerald-400 transition">
+                PORTOFOLIO
+            </a>
+            <nav class="flex items-center space-x-1 sm:space-x-4">
+                <a href="{{ route('home') }}" class="px-3 py-2 rounded-lg text-sm font-medium transition {{ request()->routeIs('home') ? 'bg-emerald-950 text-emerald-500 border border-emerald-900' : 'text-gray-400 hover:text-white hover:bg-zinc-900' }}">
+                    Beranda
+                </a>
+                <a href="{{ route('profile') }}" class="px-3 py-2 rounded-lg text-sm font-medium transition {{ request()->routeIs('profile') ? 'bg-emerald-950 text-emerald-500 border border-emerald-900' : 'text-gray-400 hover:text-white hover:bg-zinc-900' }}">
+                    Profil
+                </a>
+                <a href="{{ route('projects') }}" class="px-3 py-2 rounded-lg text-sm font-medium transition {{ request()->routeIs('projects') ? 'bg-emerald-950 text-emerald-500 border border-emerald-900' : 'text-gray-400 hover:text-white hover:bg-zinc-900' }}">
+                    Proyek
+                </a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Content -->
-    <main class="flex-grow max-w-4xl w-full mx-auto p-6">
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl w-full mx-auto px-6 py-10">
         @yield('content')
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 border-t border-gray-700 text-center py-4 text-sm text-gray-400">
-        © {{ date('Y') }} Muhammad Zacky Zayyan. All rights reserved.
+    <footer class="bg-black border-t border-emerald-950 text-center py-6 text-sm text-gray-500">
+        © {{ date('Y') }} <span class="text-emerald-600 font-medium">Muhammad Zacky Zayyan</span>. Built with Laravel 
     </footer>
+    
 
 </body>
 </html>
