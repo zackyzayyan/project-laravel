@@ -1,18 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Container dibuat lebih luas dengan max-w-6xl dan padding yang lebih lapang -->
-<div class="relative min-h-[88vh] flex flex-col justify-center overflow-hidden py-16 px-4 sm:px-8 font-sans">
+<!-- Full-screen Canvas Wrapper -->
+<div class="relative min-h-screen w-full flex flex-col justify-center overflow-x-hidden font-sans py-12">
 
-    <!-- 1. Grid Pattern Overlay (Lebih Luas & Kontras) -->
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#3f3f4625_1px,transparent_1px),linear-gradient(to_bottom,#3f3f4625_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none -z-10"></div>
+    <!-- ==================== LATAR BELAKANG FULL SCREEN ==================== -->
+    <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+        <!-- 1. Grid Pattern Overlay (Full Window) -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#3f3f4620_1px,transparent_1px),linear-gradient(to_bottom,#3f3f4620_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_50%,#000_60%,transparent_100%)]"></div>
 
-    <!-- 2. Ambient Glow Orbs (Efek Cahaya Membentang Lebih Lebar) -->
-    <div class="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-emerald-500/20 rounded-full blur-[130px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 7s;"></div>
-    <div class="absolute bottom-0 -right-32 w-[550px] h-[550px] bg-teal-400/15 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+        <!-- 2. Ambient Glow Orbs (Lebih Besar & Menjangkau Seluruh Sudut Layar) -->
+        <!-- Glow Emerald Kiri Atas -->
+        <div class="absolute -top-32 -left-32 w-[700px] h-[700px] bg-emerald-500/20 rounded-full blur-[160px] animate-pulse" style="animation-duration: 8s;"></div>
+        
+        <!-- Glow Teal Kanan Bawah -->
+        <div class="absolute -bottom-32 -right-32 w-[700px] h-[700px] bg-teal-400/15 rounded-full blur-[160px]"></div>
 
-    <!-- Main Content Container (Diubah dari max-w-4xl menjadi max-w-6xl) -->
-    <div class="max-w-6xl mx-auto w-full space-y-24 relative z-10">
+        <!-- Glow Soft Center Accent -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-emerald-600/10 rounded-full blur-[180px]"></div>
+    </div>
+    <!-- ==================================================================== -->
+
+
+    <!-- Main Content Container (Tetap rapi di tengah dengan max-w-6xl) -->
+    <div class="max-w-6xl mx-auto w-full px-6 sm:px-10 space-y-20 relative z-10">
 
         <!-- Hero Section -->
         <section class="space-y-10">
@@ -44,7 +55,7 @@
             </div>
         </section>
 
-        <!-- Cards Section (Grid Lebih Luas & Lapang) -->
+        <!-- Cards Section -->
         <section class="grid sm:grid-cols-2 gap-8 pt-12 border-t border-zinc-800/80">
             
             <!-- Front-End -->
